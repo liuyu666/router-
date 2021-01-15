@@ -1,0 +1,45 @@
+routes: [
+    {
+      path: '/',
+      components: {
+        default: Foo,
+        a: Bar,
+        b: Baz
+      }
+    }
+  ]
+
+routes: [
+    // 动态路径参数 以冒号开头
+    { path: '/user/:id', component: User }
+  ]
+
+命名视图  //会便利所有的components key 与后端的路由配置一致
+
+嵌套路由
+
+动态路由
+
+重定向与别名  routes: [
+    { path: '/a', redirect: '/b' }
+  ]  这时候/a 和 /b都应该在后端路由表中
+
+
+想要的结果是 path 对应 明确的组件
+
+
+{
+	path: '/user/:id',
+	components: [default, sidebar],
+	children: [
+		{
+		  path: '/user/:id',
+		  components: [default, sidebar]
+		}
+	]
+}
+
+
+
+具体实现控制？
+meta: { requiresAuth: true }
